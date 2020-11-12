@@ -1,12 +1,13 @@
 package guru.springframework.controllers;
 
 
+import guru.springframework.converters.UserMapper;
+import guru.springframework.domain.UserCommand;
 import guru.springframework.entities.User;
 
 public class UserController {
 
-    User saveUser() {
-        // fake impl
-        return new User();
+    User saveUser(UserCommand command) {
+        return UserMapper.INSTANCE.userCommandToUser(command);
     }
 }
